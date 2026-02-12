@@ -2,351 +2,208 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>❤️ #Sarvika ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
     margin:0;
-    font-family:'Playfair Display', serif;
-    color:#f5e6c8;
+    font-family: 'Georgia', serif;
+    background:#f6f1eb;
     overflow-x:hidden;
-    background:
-        linear-gradient(rgba(25,8,15,.85), rgba(15,4,8,.95)),
-        url("bg.jpg");
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
 }
 
 /* OPEN SCREEN */
-.open-screen{
+#openScreen{
     position:fixed;
     inset:0;
-    background:
-        linear-gradient(rgba(30,10,18,.88), rgba(10,3,6,.95)),
-        url("bg.jpg");
+    background:linear-gradient(135deg,#4b0f1f,#7b1e3a);
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
+    color:#fff;
+    text-align:center;
     z-index:10;
-    transition:opacity .8s ease;
-}
-
-.open-btn{
-    text-align:center;
-    padding:42px 52px;
-    border-radius:38px;
-    border:2px solid #d4af37;
     cursor:pointer;
-    background:linear-gradient(145deg,#2b0f1c,#16070d);
-    box-shadow:0 0 55px rgba(212,175,55,.45);
-    animation:royalPulse 2s infinite;
+    transition:opacity .6s ease;
+}
+#openScreen h1{
+    font-size:28px;
+    letter-spacing:2px;
 }
 
-@keyframes royalPulse{
-    50%{transform:scale(1.06)}
-}
-
-.open-btn h1{
-    font-family:'Dancing Script', cursive;
-    font-size:46px;
-    margin:0;
-    background:linear-gradient(45deg,#ffd166,#d4af37);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.open-btn span{
-    font-size:18px;
-    color:#d4af37;
-}
-
-/* INVITE CARD */
-.invite{
-    max-width:420px;
-    margin:50px auto;
-    padding:36px 22px 60px;
+/* CARD */
+#invite{
     display:none;
-    animation:fadeUp 1.2s ease forwards;
+    padding:20px;
 }
-
 .card{
-    border:3px solid #d4af37;
-    border-radius:34px;
-    padding:30px 18px 50px;
-    background:linear-gradient(145deg,rgba(30,10,18,.95),rgba(12,4,8,.98));
-    box-shadow:
-        0 0 0 8px rgba(212,175,55,0.18),
-        0 30px 60px rgba(0,0,0,0.45);
-}
-
-@keyframes fadeUp{
-    from{opacity:0; transform:translateY(40px)}
-    to{opacity:1; transform:translateY(0)}
-}
-
-.tagline{
+    max-width:420px;
+    margin:20px auto;
+    background:#2b0d15;
+    border:4px solid #cfa24d;
+    border-radius:18px;
+    padding:25px;
+    color:#f5e6c8;
     text-align:center;
-    font-size:22px;
-    color:#d4af37;
-}
-.subline{
-    text-align:center;
-    font-size:16px;
-    opacity:.85;
-    margin-bottom:30px;
+    box-shadow:0 20px 40px rgba(0,0,0,.3);
 }
 
 /* NAMES */
-.names-box{
-    background:linear-gradient(145deg,rgba(45,15,28,.95),rgba(18,6,12,.98));
-    border:2px solid rgba(255,215,160,.7);
-    border-radius:26px;
-    padding:28px 18px;
-    text-align:center;
-    box-shadow:0 0 30px rgba(212,175,55,.25);
-}
-
 .names{
-    font-family:'Dancing Script', cursive;
-    font-size:42px;
-    color:#ffd166;
+    font-size:28px;
+    font-weight:bold;
+    margin:10px 0;
 }
 
-.parents{
-    font-size:15px;
-    opacity:.9;
-    margin:6px 0 16px;
-}
-
-.ring-img{
-    width:64px;
-    margin:14px auto;
-    display:block;
-}
-
-/* INVITE LINE */
+/* INVITE TEXT */
 .invite-text{
-    margin:28px 0 22px;
-    font-size:18px;
-    color:#f3d6a0;
     font-style:italic;
-    text-align:center;
+    margin:12px 0 20px;
+    color:#f0dba5;
 }
 
-/* DATE */
-.section h3{
-    text-align:center;
-    color:#d4af37;
-    font-size:24px;
-    margin-bottom:18px;
-}
-
+/* DATE BOX */
 .date-box{
-    background:linear-gradient(145deg,rgba(45,15,28,.95),rgba(18,6,12,.98));
-    border:2px solid #ffd166;
-    border-radius:26px;
-    padding:26px;
-    text-align:center;
+    border:2px dashed #cfa24d;
+    padding:12px;
+    border-radius:12px;
     cursor:pointer;
-    box-shadow:0 0 35px rgba(212,175,55,.35);
+    margin-bottom:10px;
 }
-
-.tap-text{
-    color:#d4af37;
-    font-size:18px;
-}
-
-.date-hidden{
+#dateText{
     display:none;
-    font-size:30px;
-    margin-top:12px;
-    color:#ffd166;
+    font-size:20px;
 }
-
-.date-hidden sup{font-size:16px}
 
 /* COUNTDOWN */
-.countdown-title{
-    text-align:center;
-    margin-top:22px;
-    font-size:18px;
-    color:#d4af37;
-}
-
 #countdown{
-    text-align:center;
-    font-size:20px;
-    margin-top:8px;
-    color:#ffd166;
+    margin-top:10px;
+    font-size:14px;
+    color:#f0dba5;
 }
 
 /* VIDEO */
 .video-box{
-    margin-top:28px;
-    text-align:center;
+    margin-top:20px;
 }
-
 .video-box video{
     width:100%;
-    border-radius:20px;
-    border:2px solid #d4af37;
-    box-shadow:0 10px 30px rgba(212,175,55,.3);
-}
-
-/* VENUE */
-.venue{
-    text-align:center;
-    margin-top:26px;
-    font-size:18px;
-}
-
-.venue a{
-    display:inline-block;
-    margin-top:14px;
-    padding:10px 26px;
-    border-radius:25px;
-    background:linear-gradient(135deg,#d4af37,#ffd166);
-    color:#2b0f1c;
-    text-decoration:none;
-    font-weight:600;
-    box-shadow:0 8px 20px rgba(212,175,55,.45);
+    max-height:260px;
+    background:black;
+    border-radius:12px;
 }
 
 /* CONFETTI */
 .petal{
     position:fixed;
-    top:-20px;
-    font-size:22px;
+    top:-10px;
+    font-size:20px;
     animation:fall linear forwards;
-    z-index:999;
 }
-
 @keyframes fall{
-    to{transform:translateY(120vh) rotate(360deg);opacity:0}
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
 }
-
-.footer{
-    text-align:center;
-    margin-top:36px;
-    opacity:.75;
-}
-
-audio{display:none;}
 </style>
 </head>
 
 <body>
 
-<audio id="music">
-    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
+<!-- OPEN SCREEN -->
+<div id="openScreen" onclick="openInvite()">
+    <h1>#Sarvika ki Shaadi<br><small>Tap to Open</small></h1>
+</div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- OPEN -->
-<div class="open-screen" id="openScreen">
-    <div class="open-btn" onclick="openInvite()">
-        <h1>#Sarvika ki Shaadi</h1>
-        <span>Tap to open invitation</span>
-    </div>
-</div>
-
 <!-- INVITE -->
-<div class="invite" id="invite">
-<div class="card">
+<div id="invite">
+    <div class="card">
 
-<div class="tagline">Love • Laughter • Forever</div>
-<div class="subline">Together with their families</div>
+        <div class="invite-text">
+            Invite you to grace the occasion as they begin their forever together
+        </div>
 
-<div class="names-box">
-    <div class="names">Sarvesh</div>
-    <div class="parents">S/O Mrs. Jyotsna Arora & Mr. Mohan Lal Arora</div>
+        <div class="names">
+            Yashika &nbsp;❤️&nbsp; Sarvesh
+        </div>
 
-    <img src="rings.png" class="ring-img">
+        <div class="date-box" onclick="revealDate()">
+            <div id="tapText">Tap to reveal — Save the Date</div>
+            <div id="dateText">22<sup>nd</sup> March 2026</div>
+        </div>
 
-    <div class="names">Yashika</div>
-    <div class="parents">D/O Mrs. Saroj Khurana & Mr. Rajendra Khurana</div>
-</div>
+        <div id="countdown"></div>
 
-<div class="invite-text">
-Invite you to grace the occasion<br>
-as they begin their forever together
-</div>
+        <!-- VIDEO -->
+        <div class="video-box">
+            <video id="kidsVideo"
+                   src="kids.mp4"
+                   controls
+                   playsinline
+                   preload="metadata">
+            </video>
+        </div>
 
-<div class="section">
-<h3>Save the Date ✨</h3>
-
-<div class="date-box" onclick="revealDate()">
-    <div class="tap-text" id="tapText">Tap to reveal 💛</div>
-    <div class="date-hidden" id="dateText">
-        22<sup>nd</sup> March 2026
     </div>
-</div>
-
-<div class="countdown-title">Countdown Begins</div>
-<div id="countdown"></div>
-
-<div class="video-box">
-    <video src="kids.mp4" controls playsinline></video>
-</div>
-
-<div class="venue">
-📍 Antilia by Zion, Sonipat<br>
-<a href="https://www.google.com/maps/search/?api=1&query=Antilia+by+Zion+Sonipat" target="_blank">
-View on Map
-</a>
-</div>
-</div>
-
-<div class="footer">With love & blessings ✨</div>
-
-</div>
 </div>
 
 <script>
-let musicStopTimer;
+const music = document.getElementById("music");
+const video = document.getElementById("kidsVideo");
+let musicTimer;
 
+/* OPEN INVITE */
 function openInvite(){
-    const music=document.getElementById("music");
-
     document.getElementById("openScreen").style.opacity="0";
-
     setTimeout(()=>{
         document.getElementById("openScreen").style.display="none";
         document.getElementById("invite").style.display="block";
 
+        music.currentTime=0;
         music.play().catch(()=>{});
-        clearTimeout(musicStopTimer);
-        musicStopTimer=setTimeout(()=>music.pause(),60000);
-    },700);
+
+        clearTimeout(musicTimer);
+        musicTimer=setTimeout(()=>music.pause(),60000);
+    },600);
 }
 
+/* DATE REVEAL */
 function revealDate(){
     document.getElementById("tapText").style.display="none";
     document.getElementById("dateText").style.display="block";
-    confetti();
+    burstConfetti();
 }
 
-/* COUNTDOWN LOGIC */
+/* STOP MUSIC WHEN VIDEO PLAYS */
+video.addEventListener("play",()=>{
+    music.pause();
+});
+
+/* COUNTDOWN */
 const weddingDate=new Date("March 22, 2026 00:00:00").getTime();
 setInterval(()=>{
     const now=new Date().getTime();
-    const d=weddingDate-now;
+    const diff=weddingDate-now;
 
-    const days=Math.floor(d/(1000*60*60*24));
-    const hrs=Math.floor((d%(1000*60*60*24))/(1000*60*60));
-    const mins=Math.floor((d%(1000*60*60))/(1000*60));
-    const secs=Math.floor((d%(1000*60))/1000);
+    const d=Math.floor(diff/(1000*60*60*24));
+    const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    const m=Math.floor((diff%(1000*60*60))/(1000*60));
+    const s=Math.floor((diff%(1000*60))/1000);
 
     document.getElementById("countdown").innerHTML=
-        `${days} Days • ${hrs} Hours • ${mins} Min • ${secs} Sec`;
+        `Countdown begins: ${d} Days • ${h}h • ${m}m • ${s}s`;
 },1000);
 
 /* CONFETTI */
-function confetti(){
-    for(let i=0;i<50;i++){
+function burstConfetti(){
+    for(let i=0;i<80;i++){
         const p=document.createElement("div");
         p.className="petal";
         p.innerHTML=Math.random()>0.5?"🌸":"💮";
