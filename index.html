@@ -278,18 +278,17 @@ audio{display:none;}
     </div>
     <div id="countdown" style="text-align:center; font-size:18px; color:#f5e6c8;"></div>
     
-    <!-- VIDEO -->
+    <!-- SPECIAL VIDEO -->
 	<div style="margin-top:26px; text-align:center;">
-	    <div style="color:#d4af37; margin-bottom:10px;">
-	        🎥 Tap below to watch something special
+	    <div style="color:#d4af37; margin-bottom:10px; font-size:16px;">
+	        🎥 Tap to watch something special
 	    </div>
 	
 	    <video id="kidsVideo"
 	           width="100%"
-	           style="max-width:320px; border-radius:18px; box-shadow:0 0 25px rgba(212,175,55,.35); cursor:pointer;"
+	           style="max-width:320px; border-radius:18px; box-shadow:0 0 25px rgba(212,175,55,.35);"
 	           controls
-	           playsinline
-	           onclick="playVideo()">
+	           playsinline>
 	        <source src="kids.mp4" type="video/mp4">
 	    </video>
 	</div>
@@ -391,10 +390,21 @@ function playVideo(){
     });
 }
 
+const video = document.getElementById("kidsVideo");
+const music = document.getElementById("music");
+
+if(video){
+    video.addEventListener("play", () => {
+        music.pause();
+        music.currentTime = 0;
+    });
+}
+
 
 </script>
 
 </body>
 </html>
+
 
 
