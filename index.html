@@ -295,6 +295,7 @@ audio{display:none;}
 	</div>
 
 
+
         <div class="venue">
             📍 Antilia by Zion, Sonipat<br>
             <a href="https://www.google.com/maps/search/?api=1&query=Antilia+by+Zion+Sonipat" target="_blank">
@@ -380,20 +381,14 @@ function playVideo(){
     const video = document.getElementById("kidsVideo");
     const music = document.getElementById("music");
 
-    video.style.display = "block";
-    video.currentTime = 0;
-
-    // stop background music
+    // Stop background music
     music.pause();
 
-    video.play();
-
-    // optional: resume music if video ends early
-    video.onended = () => {
-        if(music.currentTime < 60){
-            music.play().catch(()=>{});
-        }
-    };
+    // Ensure video is visible & plays
+    video.muted = false;
+    video.play().catch(err => {
+        console.log("Playback blocked:", err);
+    });
 }
 
 
@@ -401,4 +396,5 @@ function playVideo(){
 
 </body>
 </html>
+
 
