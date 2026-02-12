@@ -279,19 +279,21 @@ audio{display:none;}
     <div id="countdown" style="text-align:center; font-size:18px; color:#f5e6c8;"></div>
     
     <!-- VIDEO -->
-    <div style="margin-top:26px; text-align:center;">
-        <div style="color:#d4af37; margin-bottom:10px; cursor:pointer;"
-             onclick="playVideo()">
-            🎥 Tap to watch something special
-        </div>
-    
-        <video id="kidsVideo"
-               width="100%"
-               style="max-width:320px; border-radius:18px; display:none; box-shadow:0 0 25px rgba(212,175,55,.35);"
-               controls>
-            <source src="kids.mp4" type="video/mp4">
-        </video>
-    </div>
+	<div style="margin-top:26px; text-align:center;">
+	    <div style="color:#d4af37; margin-bottom:10px;">
+	        🎥 Tap below to watch something special
+	    </div>
+	
+	    <video id="kidsVideo"
+	           width="100%"
+	           style="max-width:320px; border-radius:18px; box-shadow:0 0 25px rgba(212,175,55,.35); cursor:pointer;"
+	           controls
+	           playsinline
+	           onclick="playVideo()">
+	        <source src="kids.mp4" type="video/mp4">
+	    </video>
+	</div>
+
 
         <div class="venue">
             📍 Antilia by Zion, Sonipat<br>
@@ -351,7 +353,52 @@ function confetti(){
         setTimeout(()=>p.remove(),5000);
     }
 }
+
+/* COUNTDOWN */
+const weddingDate = new Date("March 22, 2026 00:00:00").getTime();
+
+setInterval(() => {
+    const now = new Date().getTime();
+    const diff = weddingDate - now;
+
+    if(diff <= 0){
+        document.getElementById("countdown").innerHTML = "It's the big day! 🎉";
+        return;
+    }
+
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const s = Math.floor((diff % (1000*60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+        `${d} Days • ${h} Hrs • ${m} Min • ${s} Sec`;
+},1000);
+
+/* VIDEO + MUSIC HANDLING */
+function playVideo(){
+    const video = document.getElementById("kidsVideo");
+    const music = document.getElementById("music");
+
+    video.style.display = "block";
+    video.currentTime = 0;
+
+    // stop background music
+    music.pause();
+
+    video.play();
+
+    // optional: resume music if video ends early
+    video.onended = () => {
+        if(music.currentTime < 60){
+            music.play().catch(()=>{});
+        }
+    };
+}
+
+
 </script>
 
 </body>
 </html>
+
